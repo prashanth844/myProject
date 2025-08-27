@@ -1,0 +1,15 @@
+server:
+  port: 9006
+  servlet:
+    context-path: /order-service
+
+spring:
+  application:
+    name: ORDER-SERVICE
+  config:
+    import: optional:configserver:http://localhost:9001
+
+logging:
+  file:
+    name: order-service.log
+    path: .//

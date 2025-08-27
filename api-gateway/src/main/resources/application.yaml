@@ -1,0 +1,65 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: API-GATEWAY
+
+  config:
+    import: optional:configserver:http://localhost:9001
+
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          # User Service
+          - id: USER-SERVICE
+            uri: lb://USER-SERVICE
+            predicates:
+              - Path=/user-service/**
+            filters:
+              - StripPrefix=1
+
+          # Product Service
+          - id: PRODUCT-SERVICE
+            uri: lb://PRODUCT-SERVICE
+            predicates:
+              - Path=/product-service/**
+            filters:
+              - StripPrefix=1
+
+          # Cart Service
+          - id: CART-SERVICE
+            uri: lb://CART-SERVICE
+            predicates:
+              - Path=/cart-service/**
+            filters:
+              - StripPrefix=1
+
+          # Order Service
+          - id: ORDER-SERVICE
+            uri: lb://ORDER-SERVICE
+            predicates:
+              - Path=/order-service/**
+            filters:
+              - StripPrefix=1
+
+          # Payment Service
+          - id: PAYMENT-SERVICE
+            uri: lb://PAYMENT-SERVICE
+            predicates:
+              - Path=/payment-service/**
+            filters:
+              - StripPrefix=1
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:9002/eureka
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

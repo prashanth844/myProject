@@ -1,0 +1,15 @@
+server:
+  port: 9004
+  servlet:
+    context-path: /cart-service
+
+spring:
+  application:
+    name: CART-SERVICE
+  config:
+    import: optional:configserver:http://localhost:9001
+
+logging:
+  file:
+    name: cart-service.log
+    path: .//

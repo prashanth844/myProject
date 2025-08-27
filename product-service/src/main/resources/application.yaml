@@ -1,0 +1,23 @@
+server:
+  port: 9005
+  servlet:
+    context-path: /product-service
+
+spring:
+  application:
+    name: PRODUCT-SERVICE
+  config:
+    import: optional:configserver:http://localhost:9001
+
+logging:
+  file:
+    name: product-service.log
+    path: .//
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:9002/eureka
+
