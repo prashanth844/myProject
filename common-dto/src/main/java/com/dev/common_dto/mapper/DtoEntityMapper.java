@@ -4,7 +4,7 @@ import org.modelmapper.ModelMapper;
 
 import lombok.Builder;
 
-	public class DtoEntityMapper<D, E> {
+public class DtoEntityMapper<D, E> {
 
 	    private final ModelMapper modelMapper;
 

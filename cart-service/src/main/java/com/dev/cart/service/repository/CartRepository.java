@@ -11,7 +11,6 @@ import java.util.Optional;
 @Repository
 public interface CartRepository extends JpaRepository<Cart, Long> {
 
-    // Find a cart by userId, returns Optional to handle "not found" safely
     Optional<Cart> findByUserId(String userId);
 }
 

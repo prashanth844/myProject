@@ -1,76 +1,47 @@
 package com.dev.order.service.model;
 
-
-import jakarta.persistence.*;
-import java.util.List;
-
 import com.dev.order.service.enumFile.OrderStatus;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id; 
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id; // Use UUID or custom string ID
 
-    @Column(nullable = false)
     private String userId;
 
-    @Column(nullable = false)
-    private double totalPrice;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "order_id") // foreign key in OrderItem
+    private List<OrderItem> items;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status = OrderStatus.PENDING;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "order_id")
-    private List<OrderItem> items;
-
-    
+    // Constructors
     public Order() {}
 
-    public Order(String id, String userId, double totalPrice, OrderStatus status, List<OrderItem> items) {
+    public Order(String id, String userId, List<OrderItem> items, OrderStatus status) {
         this.id = id;
         this.userId = userId;
-        this.totalPrice = totalPrice;
-        this.status = status;
         this.items = items;
+        this.status = status;
     }
 
-   
-    public String getId() {
-    	return id;
-    	}
-    public void setId(String id) { 
-    	this.id = id;
-    	}
+    // Getters & Setters
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    public String getUserId() {
-    	return userId; 
-    	}
-    public void setUserId(String userId) {
-    	this.userId = userId;
-    	}
+    public String getUserId() { return userId; }
+    public void setUserId(String userId) { this.userId = userId; }
 
-    public double getTotalPrice() {
-    	return totalPrice; 
-    	}
-    public void setTotalPrice(double totalPrice) {
-    	this.totalPrice = totalPrice; 
-    	}
+    public List<OrderItem> getItems() { return items; }
+    public void setItems(List<OrderItem> items) { this.items = items; }
 
-    public OrderStatus getStatus() {
-    	return status; 
-    	}
-    public void setStatus(OrderStatus status) {
-    	this.status = status;
-    	}
-
-    public List<OrderItem> getItems() {
-    	return items;
-    	}
-    public void setItems(List<OrderItem> items) { 
-    	this.items = items; 
-    	}
+    public OrderStatus getStatus() { return status; }
+    public void setStatus(OrderStatus status) { this.status = status; }
 }
