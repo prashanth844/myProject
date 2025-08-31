@@ -7,7 +7,7 @@ public class ModelMapperUtil {
     private static final ModelMapper modelMapper = new ModelMapper();
 
     private ModelMapperUtil() {
-        // utility class
+    	
     }
 
     public static ModelMapper getModelMapper() {

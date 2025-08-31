@@ -19,13 +19,13 @@ public class Product {
     private double price;    
 
     @Column(nullable = false)
-    private Integer stock;       // Quantity available
+    private Integer stock;       
 
-    private String category;     // Example: Electronics, Fashion, Grocery
+    private String category;    
 
-    private String brand;        // Example: Samsung, Nike, etc.
+    private String brand;        
 
-    private String imageUrl;     // URL for product image
+    private String imageUrl;     
     
     public Product() {
     	

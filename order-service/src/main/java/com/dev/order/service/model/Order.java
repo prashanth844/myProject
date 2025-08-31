@@ -11,18 +11,17 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id; // Use UUID or custom string ID
-
+    private String id; 
+    
     private String userId;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "order_id") // foreign key in OrderItem
+    @JoinColumn(name = "order_id") 
     private List<OrderItem> items;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status = OrderStatus.PENDING;
 
-    // Constructors
     public Order() {}
 
     public Order(String id, String userId, List<OrderItem> items, OrderStatus status) {
@@ -32,16 +31,31 @@ public class Order {
         this.status = status;
     }
 
-    // Getters & Setters
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getId() { 
+    	return id;
+    	}
+    public void setId(String id) {
+    	this.id = id;
+    	}
 
-    public String getUserId() { return userId; }
-    public void setUserId(String userId) { this.userId = userId; }
+    public String getUserId() {
+    	return userId;
+    	}
+    public void setUserId(String userId) {
+    	this.userId = userId;
+    	}
 
-    public List<OrderItem> getItems() { return items; }
-    public void setItems(List<OrderItem> items) { this.items = items; }
+    public List<OrderItem> getItems() { 
+    	return items; 
+    	}
+    public void setItems(List<OrderItem> items) { 
+    	this.items = items; 
+    	}
 
-    public OrderStatus getStatus() { return status; }
-    public void setStatus(OrderStatus status) { this.status = status; }
+    public OrderStatus getStatus() { 
+    	return status; 
+    	}
+    public void setStatus(OrderStatus status) { 
+    	this.status = status;
+    	}
 }

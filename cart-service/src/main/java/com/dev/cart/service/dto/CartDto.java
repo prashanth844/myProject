@@ -13,21 +13,45 @@ public class CartDto {
 
     public CartDto() {}
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() { 
+    	return id; 
+    	}
+    public void setId(Long id) { 
+    	this.id = id; 
+    	}
 
-    public String getUserId() { return userId; }
-    public void setUserId(String userId) { this.userId = userId; }
+    public String getUserId() { 
+    	return userId; 
+    	}
+    public void setUserId(String userId) {
+    	this.userId = userId;
+    	}
 
-    public List<CartItemDto> getItems() { return items; }
-    public void setItems(List<CartItemDto> items) { this.items = items; }
+    public List<CartItemDto> getItems() { 
+    	return items; 
+    	}
+    public void setItems(List<CartItemDto> items) { 
+    	this.items = items;
+    	}
 
-    public Double getTotalPrice() { return totalPrice; }
-    public void setTotalPrice(Double totalPrice) { this.totalPrice = totalPrice; }
+    public Double getTotalPrice() {
+    	return totalPrice;
+    	}
+    public void setTotalPrice(Double totalPrice) { 
+    	this.totalPrice = totalPrice;
+    	}
 
-    public Integer getTotalItems() { return totalItems; }
-    public void setTotalItems(Integer totalItems) { this.totalItems = totalItems; }
+    public Integer getTotalItems() {
+    	return totalItems; 
+    	}
+    public void setTotalItems(Integer totalItems) { 
+    	this.totalItems = totalItems; 
+    	}
 
-    public Boolean getCheckedOut() { return checkedOut; }
-    public void setCheckedOut(Boolean checkedOut) { this.checkedOut = checkedOut; }
+    public Boolean getCheckedOut() {
+    	return checkedOut;
+    	}
+    public void setCheckedOut(Boolean checkedOut) { 
+    	this.checkedOut = checkedOut; 
+    	}
 }

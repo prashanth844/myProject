@@ -15,9 +15,17 @@ public class OrderDto {
     }
 
     
-    public String getUserId() { return userId; }
-    public void setUserId(String userId) { this.userId = userId; }
+    public String getUserId() { 
+    	return userId;
+    	}
+    public void setUserId(String userId) { 
+    	this.userId = userId; 
+    	}
 
-    public List<OrderItemDto> getItems() { return items; }
-    public void setItems(List<OrderItemDto> items) { this.items = items; }
+    public List<OrderItemDto> getItems() {
+    	return items; 
+    	}
+    public void setItems(List<OrderItemDto> items) {
+    	this.items = items;
+    	}
 }

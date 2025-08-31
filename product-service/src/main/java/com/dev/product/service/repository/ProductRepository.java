@@ -6,5 +6,5 @@ import com.dev.product.service.model.Product;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, String> {
-    // No need to declare save() or other basic CRUD methods
+
 }

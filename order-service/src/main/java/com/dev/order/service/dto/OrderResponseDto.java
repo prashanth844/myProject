@@ -12,7 +12,9 @@ public class OrderResponseDto {
     private OrderStatus status;
     private List<OrderItemDto> items;
 
-    public OrderResponseDto() {}
+    public OrderResponseDto() {
+    	
+    }
 
     public OrderResponseDto(String id, String userId, double totalPrice, OrderStatus status, List<OrderItemDto> items) {
         this.id = id;
@@ -23,18 +25,38 @@ public class OrderResponseDto {
     }
 
     
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getId() { 
+    	return id; 
+    	}
+    public void setId(String id) {
+    	this.id = id; 
+    	}
 
-    public String getUserId() { return userId; }
-    public void setUserId(String userId) { this.userId = userId; }
+    public String getUserId() { 
+    	return userId; 
+    	}
+    public void setUserId(String userId) { 
+    	this.userId = userId;
+    	}
 
-    public double getTotalPrice() { return totalPrice; }
-    public void setTotalPrice(double totalPrice) { this.totalPrice = totalPrice; }
+    public double getTotalPrice() { 
+    	return totalPrice;
+    	}
+    public void setTotalPrice(double totalPrice) { 
+    	this.totalPrice = totalPrice; 
+    	}
 
-    public OrderStatus getStatus() { return status; }
-    public void setStatus(OrderStatus status) { this.status = status; }
+    public OrderStatus getStatus() {
+    	return status;
+    	}
+    public void setStatus(OrderStatus status) {
+    	this.status = status;
+    	}
 
-    public List<OrderItemDto> getItems() { return items; }
-    public void setItems(List<OrderItemDto> items) { this.items = items; }
+    public List<OrderItemDto> getItems() { 
+    	return items; 
+    	}
+    public void setItems(List<OrderItemDto> items) { 
+    	this.items = items;
+    	}
 }

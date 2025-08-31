@@ -37,7 +37,6 @@ public class CartServiceImpl implements CartService {
         Cart cart = cartRepository.findByUserId(userId)
                 .orElseThrow(() -> new RuntimeException("Cart not found for user: " + userId));
 
-        // Sample product data (replace with actual product fetching logic)
         CartItem item = new CartItem(productId, "Sample Product", 100.0, 1);
         cart.addItem(item);
 
@@ -63,21 +62,21 @@ public class CartServiceImpl implements CartService {
     @Override
     public CartDto getCartByUserId(String userId) {
         Cart cart = cartRepository.findByUserId(userId)
-                .orElseThrow(() -> new RuntimeException("Cart not found for user: " + userId));
+        .orElseThrow(() -> new RuntimeException("Cart not found for user: " + userId));
         return cartDtoMapper.convertFromEntityToDto(cart, CartDto.class);
     }
 
     @Override
     public List<CartDto> getAllCarts() {
         return cartRepository.findAll().stream()
-                .map(cart -> cartDtoMapper.convertFromEntityToDto(cart, CartDto.class))
-                .collect(Collectors.toList());
+        .map(cart -> cartDtoMapper.convertFromEntityToDto(cart, CartDto.class))
+        .collect(Collectors.toList());
     }
 
     @Override
     public void clearCart(String userId) {
         Cart cart = cartRepository.findByUserId(userId)
-                .orElseThrow(() -> new RuntimeException("Cart not found for user: " + userId));
+       .orElseThrow(() -> new RuntimeException("Cart not found for user: " + userId));
         cart.getItems().clear();
         cart.recalculateTotals();
         cartRepository.save(cart);

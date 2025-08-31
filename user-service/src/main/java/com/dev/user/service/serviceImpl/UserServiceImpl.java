@@ -18,66 +18,63 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
-	
 
 	@Autowired
-    private UserRepository userRepository;
-	
-    private final DtoEntityMapper<UserDto, User> mapper;
+	private UserRepository userRepository;
 
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-        this.mapper = DtoEntityMapper.getDtoEntityMapper();
-    }
+	private final DtoEntityMapper<UserDto, User> mapper;
 
-    @Override
-    public UserDto registerUser(UserDto userDto) {
-        User user = mapper.convertFromDtoToEntity(userDto, User.class);
-        User saved = userRepository.save(user);
-        return mapper.convertFromEntityToDto(saved, UserDto.class);
-    }
+	public UserServiceImpl(UserRepository userRepository) {
+		this.userRepository = userRepository;
+		this.mapper = DtoEntityMapper.getDtoEntityMapper();
+	}
 
-    @Override
-    public UserDto getUserById(String id) {
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
-        return mapper.convertFromEntityToDto(user, UserDto.class);
-    }
+	@Override
+	public UserDto registerUser(UserDto userDto) {
+		User user = mapper.convertFromDtoToEntity(userDto, User.class);
+		User saved = userRepository.save(user);
+		return mapper.convertFromEntityToDto(saved, UserDto.class);
+	}
 
-    @Override
-    public Optional<UserDto> getUserByEmail(String email) {
-        return userRepository.findByEmail(email)
-                .map(user -> mapper.convertFromEntityToDto(user, UserDto.class));
-    }
+	@Override
+	public UserDto getUserById(String id) {
+		User user = userRepository.findById(id)
+				.orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+		return mapper.convertFromEntityToDto(user, UserDto.class);
+	}
 
-    @Override
-    public List<UserDto> getAllUsers() {
-        return userRepository.findAll()
-                .stream()
-                .map(user -> mapper.convertFromEntityToDto(user, UserDto.class))
-                .collect(Collectors.toList());
-    }
+	@Override
+	public Optional<UserDto> getUserByEmail(String email) {
+		return userRepository.findByEmail(email)
+		.map(user -> mapper.convertFromEntityToDto(user, UserDto.class));
+	}
 
-    @Override
-    public UserDto updateUser(String id, UserDto userDto) {
-        userRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
+	@Override
+	public List<UserDto> getAllUsers() {
+		return userRepository.findAll()
+				.stream()
+				.map(user -> mapper.convertFromEntityToDto(user, UserDto.class))
+				.collect(Collectors.toList());
+	}
 
-        User updatedUser = mapper.convertFromDtoToEntity(userDto, User.class);
+	@Override
+	public UserDto updateUser(String id, UserDto userDto) {
+		userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
 
-        updatedUser.setId(id);
+		User updatedUser = mapper.convertFromDtoToEntity(userDto, User.class);
 
-        User savedUser = userRepository.save(updatedUser);
+		updatedUser.setId(id);
 
-        return mapper.convertFromEntityToDto(savedUser, UserDto.class);
-    }
+		User savedUser = userRepository.save(updatedUser);
 
+		return mapper.convertFromEntityToDto(savedUser, UserDto.class);
+	}
 
-    @Override
-    public void deleteUser(String id) {
-        if (!userRepository.existsById(id)) {
-            throw new RuntimeException("User not found with id: " + id);
-        }
-        userRepository.deleteById(id);
-    }
-} 
+	@Override
+	public void deleteUser(String id) {
+		if (!userRepository.existsById(id)) {
+			throw new RuntimeException("User not found with id: " + id);
+		}
+		userRepository.deleteById(id);
+	}
+}

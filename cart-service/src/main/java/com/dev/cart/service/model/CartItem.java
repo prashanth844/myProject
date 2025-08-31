@@ -23,7 +23,9 @@ public class CartItem {
     @JoinColumn(name = "cart_id")
     private Cart cart;
 
-    public CartItem() {}
+    public CartItem() {
+    	
+    }
 
     public CartItem(String productId, String productName, Double price, Integer quantity) {
         this.productId = productId;
@@ -32,27 +34,51 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    public Long getId() { return id; }
+    public Long getId() {
+    	return id;
+    	}
 
-    public void setId(Long id) { this.id = id; }
+    public void setId(Long id) {
+    	this.id = id; 
+    	}
 
-    public String getProductId() { return productId; }
+    public String getProductId() {
+    	return productId; 
+    	}
 
-    public void setProductId(String productId) { this.productId = productId; }
+    public void setProductId(String productId) {
+    	this.productId = productId; 
+    	}
 
-    public String getProductName() { return productName; }
+    public String getProductName() { 
+    	return productName; 
+    	}
 
-    public void setProductName(String productName) { this.productName = productName; }
+    public void setProductName(String productName) {
+    	this.productName = productName; 
+    	}
 
-    public Double getPrice() { return price; }
+    public Double getPrice() {
+    	return price; 
+    	}
 
-    public void setPrice(Double price) { this.price = price; }
+    public void setPrice(Double price) {
+    	this.price = price; 
+    	}
 
-    public Integer getQuantity() { return quantity; }
+    public Integer getQuantity() {
+    	return quantity; 
+    	}
 
-    public void setQuantity(Integer quantity) { this.quantity = quantity; }
+    public void setQuantity(Integer quantity) { 
+    	this.quantity = quantity; 
+    	}
 
-    public Cart getCart() { return cart; }
+    public Cart getCart() {
+    	return cart;
+    	}
 
-    public void setCart(Cart cart) { this.cart = cart; }
+    public void setCart(Cart cart) {
+    	this.cart = cart; 
+    	}
 }

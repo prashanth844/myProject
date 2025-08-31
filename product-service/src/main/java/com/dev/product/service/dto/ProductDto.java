@@ -11,13 +11,13 @@ public class ProductDto {
 
     private double price;    
 
-    private Integer stock;       // Quantity available
+    private Integer stock;       
 
-    private String category;     // Example: Electronics, Fashion, Grocery
+    private String category;     
 
-    private String brand;        // Example: Samsung, Nike, etc.
-
-    private String imageUrl;     // URL for product image
+    private String brand;        
+    
+    private String imageUrl;     
     
     public ProductDto() {
     	
@@ -25,7 +25,6 @@ public class ProductDto {
 
 	public ProductDto(String id, String name, String description, double price, Integer stock, String category,
 			String brand, String imageUrl) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;

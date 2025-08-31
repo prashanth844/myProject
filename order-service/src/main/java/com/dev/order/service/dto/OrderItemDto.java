@@ -14,13 +14,24 @@ public class OrderItemDto {
         this.price = price;
     }
 
-    // Getters & Setters
-    public String getProductId() { return productId; }
-    public void setProductId(String productId) { this.productId = productId; }
+    public String getProductId() { 
+    	return productId; 
+    	}
+    public void setProductId(String productId) {
+    	this.productId = productId;
+    	}
 
-    public int getQuantity() { return quantity; }
-    public void setQuantity(int quantity) { this.quantity = quantity; }
+    public int getQuantity() { 
+    	return quantity;
+    	}
+    public void setQuantity(int quantity) { 
+    	this.quantity = quantity;
+    	}
 
-    public double getPrice() { return price; }
-    public void setPrice(double price) { this.price = price; }
+    public double getPrice() { 
+    	return price; 
+    	}
+    public void setPrice(double price) { 
+    	this.price = price; 
+    	}
 }

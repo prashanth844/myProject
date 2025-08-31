@@ -9,13 +9,13 @@ public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id; // We’ll generate UUID manually
+    private String id; 
 
     @Column(nullable = false)
-    private String orderId;  // reference to Order microservice
+    private String orderId;  
 
     @Column(nullable = false)
-    private String userId;   // reference to User microservice
+    private String userId;   
 
     @Column(nullable = false)
     private double amount;
@@ -25,10 +25,8 @@ public class Payment {
 
     private String paymentMode;
 
-    // 🔹 Default constructor
     public Payment() {}
 
-    // 🔹 Parameterized constructor
     public Payment(String id, String orderId, String userId, double amount, PaymentStatus status, String paymentMode) {
         this.id = id;
         this.orderId = orderId;
@@ -38,7 +36,6 @@ public class Payment {
         this.paymentMode = paymentMode;
     }
 
-    // 🔹 Getters and Setters
     public String getId() {
         return id;
     }

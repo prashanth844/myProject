@@ -49,14 +49,16 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<OrderResponseDto> getOrdersByUser(String userId) {
 		return orderRepository.findByUserId(userId).stream()
-				.map(order -> orderResponseMapper.convertFromEntityToDto(order, OrderResponseDto.class))
+				.map(order -> orderResponseMapper
+				.convertFromEntityToDto(order, OrderResponseDto.class))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public List<OrderResponseDto> getAllOrders() {
 		return orderRepository.findAll().stream()
-				.map(order -> orderResponseMapper.convertFromEntityToDto(order, OrderResponseDto.class))
+				.map(order -> orderResponseMapper
+				.convertFromEntityToDto(order, OrderResponseDto.class))
 				.collect(Collectors.toList());
 	}
 

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class RouteValidator {
 
-    // List of endpoints that do NOT require authentication
     public static final List<String> openApiEndpoints = List.of(
             "/auth/register",
             "/auth/token",

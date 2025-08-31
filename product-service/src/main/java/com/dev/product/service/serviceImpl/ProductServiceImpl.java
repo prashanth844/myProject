@@ -33,7 +33,8 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<ProductDto> getAllProducts() {
 		return productRepository.findAll().stream()
-				.map(product -> mapper.convertFromEntityToDto(product, ProductDto.class)).collect(Collectors.toList());
+				.map(product -> mapper.convertFromEntityToDto(product, ProductDto.class))
+				.collect(Collectors.toList());
 	}
 
 	@Override
